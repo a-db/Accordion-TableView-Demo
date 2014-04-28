@@ -91,7 +91,7 @@
     
     // Create MovieInfo objects from the movie data
     // Also creates three arrays of 5 movies
-    for (int i = 0, j = movieData.count; i < j; i++) {
+    for (int i = 0, j = (int)movieData.count; i < j; i++) {
         MovieInfo *movieObj = [[MovieInfo alloc] initWithInfo:movieData[i][@"name"] imgStr:movieData[i][@"image"] movTimes:movieData[i][@"movieTimes"]];
         if (movieObj){
             if (i < 5) {
@@ -163,7 +163,7 @@
             // Setup the block click handler on the header
             header.buttonTappedHandler = ^{
                 // Call the accordion method
-                [self openAccordionAtIndex:section];
+                [self openAccordionAtIndex:(int)section];
             };
             return header;
         }
@@ -210,7 +210,7 @@
 
         NSMutableArray *indexPaths = [NSMutableArray array];
         //NSLog(@"%d", self.currentlyExpandedIndex);
-        int sectionCount = [ [self.theaterArray[self.currentlyExpandedIndex] theaterMovies] count];
+        int sectionCount = (int)[ [self.theaterArray[self.currentlyExpandedIndex] theaterMovies] count];
         
         for(int i = 0; i < sectionCount; i ++) {
             
@@ -224,7 +224,7 @@
         
         self.currentlyExpandedIndex = index;
         //NSLog(@"%d", self.currentlyExpandedIndex);
-        sectionCount = [ [self.theaterArray[self.currentlyExpandedIndex] theaterMovies] count];
+        sectionCount = (int)[ [self.theaterArray[self.currentlyExpandedIndex] theaterMovies] count];
         
         [indexPaths removeAllObjects];
         for(int i = 0; i < sectionCount; i ++) {
